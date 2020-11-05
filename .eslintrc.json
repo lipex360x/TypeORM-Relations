@@ -15,5 +15,8 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "no-undef":"off",
+      "no-useless-constructor":"off",
+      "camelcase":"off"
     }
 }
