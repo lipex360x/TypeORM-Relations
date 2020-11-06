@@ -1,3 +1,4 @@
+import AppError from '@shared/errors/AppError'
 import FakeCustomersRepository from '../../repositories/fakes/FakeCustomersRepository'
 import CreateCustomerService from './CreateCustomerService'
 
@@ -17,5 +18,19 @@ describe('CreateCustomer', () => {
     })
 
     expect(customer).toHaveProperty('id')
+  })
+
+  it('should not be able to create a new customer with duplicate email', async () => {
+    await createCustomerService.execute({
+      name: 'John Doe',
+      email: 'johndoe@mail.com'
+    })
+
+    await expect(
+      createCustomerService.execute({
+        name: 'John Doe',
+        email: 'johndoe@mail.com'
+      })
+    ).rejects.toBeInstanceOf(AppError)
   })
 })

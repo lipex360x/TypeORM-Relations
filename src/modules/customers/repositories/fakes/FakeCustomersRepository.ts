@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import Customer from '@modules/customers/entities/Customer'
-import ICustomersRepository, { SaveProps } from '../interfaces/ICustomersRepository'
+import ICustomersRepository, { FindByEmailProps, SaveProps } from '../interfaces/ICustomersRepository'
 
 export default class FakeCustomersRepository implements ICustomersRepository {
   private customers: Customer[] = []
@@ -19,5 +19,11 @@ export default class FakeCustomersRepository implements ICustomersRepository {
     this.customers.push(customer)
 
     return customer
+  }
+
+  async findByEmail ({ email }:FindByEmailProps): Promise<Customer> {
+    const getCustomer = this.customers.find(customer => customer.email === email)
+
+    return getCustomer
   }
 }

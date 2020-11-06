@@ -1,7 +1,7 @@
 import { Repository, getRepository } from 'typeorm'
 
 import Customer from '@modules/customers/entities/Customer'
-import ICustomersRepository, { SaveProps } from '../interfaces/ICustomersRepository'
+import ICustomersRepository, { FindByEmailProps, SaveProps } from '../interfaces/ICustomersRepository'
 
 export default class CustomersRepository implements ICustomersRepository {
   private repository: Repository<Customer>
@@ -16,5 +16,11 @@ export default class CustomersRepository implements ICustomersRepository {
     await this.repository.save(customer)
 
     return customer
+  }
+
+  async findByEmail ({ email }:FindByEmailProps): Promise<Customer> {
+    const getCustomer = await this.repository.findOne({ where: { email } })
+
+    return getCustomer
   }
 }
