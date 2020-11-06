@@ -6,5 +6,5 @@ export interface SaveProps {
 }
 
 export default interface ICustomersRepository {
-  save(data: SaveProps): Promise<Customer>
+  create(data: SaveProps): Promise<Customer>
 }

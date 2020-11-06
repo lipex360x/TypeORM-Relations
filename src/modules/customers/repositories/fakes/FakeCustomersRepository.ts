@@ -5,7 +5,7 @@ import ICustomersRepository, { SaveProps } from '../interfaces/ICustomersReposit
 export default class FakeCustomersRepository implements ICustomersRepository {
   private customers: Customer[] = []
 
-  async save ({ name, email }:SaveProps): Promise<Customer> {
+  async create ({ name, email }:SaveProps): Promise<Customer> {
     const customer = new Customer()
 
     Object.assign(customer, {

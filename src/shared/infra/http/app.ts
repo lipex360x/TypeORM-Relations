@@ -2,6 +2,7 @@ import 'reflect-metadata'
 import 'dotenv/config'
 import express from 'express'
 
+import '@shared/containers'
 import routes from '@shared/infra/http/routes'
 
 import connectDB from '@shared/infra/typeorm'

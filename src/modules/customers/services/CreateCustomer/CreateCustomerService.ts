@@ -10,12 +10,12 @@ interface Request{
 @injectable()
 export default class CreateCustomerService {
   constructor (
-    @inject('CustomerRepository')
+    @inject('CustomersRepository')
     private repository: ICustomersRepository
   ) {}
 
   async execute ({ name, email }: Request): Promise<Customer> {
-    const customer = await this.repository.save({ name, email })
+    const customer = await this.repository.create({ name, email })
 
     return customer
   }
