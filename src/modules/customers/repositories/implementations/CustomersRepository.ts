@@ -1,7 +1,7 @@
 import { Repository, getRepository } from 'typeorm'
 
 import Customer from '@modules/customers/entities/Customer'
-import ICustomersRepository, { FindByEmailProps, SaveProps } from '../interfaces/ICustomersRepository'
+import ICustomersRepository, { FindByEmailProps, CreateProps } from '../interfaces/ICustomersRepository'
 
 export default class CustomersRepository implements ICustomersRepository {
   private repository: Repository<Customer>
@@ -10,7 +10,7 @@ export default class CustomersRepository implements ICustomersRepository {
     this.repository = getRepository(Customer)
   }
 
-  async create ({ name, email }:SaveProps): Promise<Customer> {
+  async create ({ name, email }:CreateProps): Promise<Customer> {
     const customer = this.repository.create({ name, email })
 
     await this.repository.save(customer)

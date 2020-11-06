@@ -1,11 +1,11 @@
 import { v4 as uuid } from 'uuid'
 import Customer from '@modules/customers/entities/Customer'
-import ICustomersRepository, { FindByEmailProps, SaveProps } from '../interfaces/ICustomersRepository'
+import ICustomersRepository, { FindByEmailProps, CreateProps } from '../interfaces/ICustomersRepository'
 
 export default class FakeCustomersRepository implements ICustomersRepository {
   private customers: Customer[] = []
 
-  async create ({ name, email }:SaveProps): Promise<Customer> {
+  async create ({ name, email }:CreateProps): Promise<Customer> {
     const customer = new Customer()
 
     Object.assign(customer, {
