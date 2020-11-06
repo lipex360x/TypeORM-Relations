@@ -6,6 +6,6 @@ const createCustomersController = new CreateCustomersController()
 
 const router = Router()
 
-router.get('/', createCustomersController.create)
+router.post('/', createCustomersController.create)
 
 export default router
