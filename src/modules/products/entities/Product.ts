@@ -17,7 +17,7 @@ export default class Product {
   name: string;
 
   @Column('int')
-  quantity: string;
+  quantity: number;
 
   @Column('decimal')
   price: number;
