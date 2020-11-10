@@ -5,13 +5,15 @@ import {
   PrimaryColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  BeforeInsert
+  BeforeInsert,
+  OneToMany
 } from 'typeorm'
+import Order_Product from '@modules/orders/entities/Order_Product'
 
 @Entity('products')
 export default class Product {
-  @PrimaryColumn()
-  id: string;
+  @PrimaryColumn('uuid')
+  product_id: string;
 
   @Column()
   name: string;
@@ -22,6 +24,9 @@ export default class Product {
   @Column('decimal')
   price: number;
 
+  @OneToMany(() => Order_Product, order_products => order_products.product)
+  order_products: Order_Product[]
+
   @CreateDateColumn()
   created_at: Date;
 
@@ -30,6 +35,6 @@ export default class Product {
 
   @BeforeInsert()
   productProps () {
-    this.id = uuid()
+    this.product_id = uuid()
   }
 }
