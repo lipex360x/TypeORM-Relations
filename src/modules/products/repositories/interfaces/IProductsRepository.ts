@@ -6,6 +6,11 @@ export interface CreateProps {
   price: number
 }
 
+export interface FindByNameProps {
+  name: string
+}
+
 export default interface IProductsRepository {
   create(data: CreateProps): Promise<Product>
+  findByName(data: FindByNameProps): Promise<Product>
 }
