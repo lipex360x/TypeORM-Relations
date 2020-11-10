@@ -7,7 +7,7 @@ export default class CreateProducts20201106122744 implements MigrationInterface 
         name: 'products',
         columns: [
           {
-            name: 'id',
+            name: 'product_id',
             type: 'uuid',
             isPrimary: true
           },
