@@ -21,7 +21,9 @@ export default class Order {
   @JoinColumn({ name: 'customer_id' })
   customer: Customer
 
-  @OneToMany(() => Order_Product, order_products => order_products.order)
+  @OneToMany(() => Order_Product, order_products => order_products.order, {
+    cascade: true
+  })
   order_products: Order_Product[]
 
   @CreateDateColumn()
