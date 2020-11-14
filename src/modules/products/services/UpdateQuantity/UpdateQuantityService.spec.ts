@@ -1,4 +1,4 @@
-// import AppError from '@shared/errors/AppError'
+import AppError from '@shared/errors/AppError'
 
 import FakeProductsRepository from '@modules/products/repositories/fakes/FakeProductsRepository'
 import UpdateQuantityService from './UpdateQuantityService'
@@ -60,5 +60,24 @@ describe('UpdateQuantity', () => {
         })
       ])
     )
+  })
+
+  it('should not able to update a unexisting list of products', async () => {
+    await fakeRepository.create({
+      name: 'prod1',
+      price: 300,
+      quantity: 500
+    })
+
+    const setProducts = [
+      {
+        product_id: 'unexisting-product',
+        quantity: 100
+      }
+    ]
+
+    await expect(
+      updateQuantityService.execute({ products: setProducts })
+    ).rejects.toBeInstanceOf(AppError)
   })
 })
