@@ -18,7 +18,7 @@ describe('CreateProducts', () => {
       quantity: 10
     })
 
-    expect(product).toHaveProperty('id')
+    expect(product).toHaveProperty('product_id')
   })
 
   it('should not able to create a new product with repeated name', async () => {

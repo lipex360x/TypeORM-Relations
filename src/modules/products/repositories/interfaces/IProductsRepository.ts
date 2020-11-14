@@ -10,7 +10,12 @@ export interface FindByNameProps {
   name: string
 }
 
+export interface FindAllByIdProps {
+  arrayProductIds: string[]
+}
+
 export default interface IProductsRepository {
   create(data: CreateProps): Promise<Product>
   findByName(data: FindByNameProps): Promise<Product>
+  findAllById(data: FindAllByIdProps): Promise<Product[]>
 }

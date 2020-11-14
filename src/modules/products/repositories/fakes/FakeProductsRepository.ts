@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
 import Product from '@modules/products/entities/Product'
-import IProductsRepository, { CreateProps, FindByNameProps } from '../interfaces/IProductsRepository'
+import IProductsRepository, { CreateProps, FindByNameProps, FindAllByIdProps } from '../interfaces/IProductsRepository'
 
 export default class FakeProductsRepository implements IProductsRepository {
   private repository: Product[] = []
@@ -10,7 +10,7 @@ export default class FakeProductsRepository implements IProductsRepository {
     const product = new Product()
 
     Object.assign(product, {
-      id: uuid(),
+      product_id: uuid(),
       name,
       price,
       quantity,
@@ -27,5 +27,13 @@ export default class FakeProductsRepository implements IProductsRepository {
     const getProduct = this.repository.find(product => product.name === name)
 
     return getProduct
+  }
+
+  async findAllById ({ arrayProductIds }:FindAllByIdProps): Promise<Product[]> {
+    const getProducts = arrayProductIds.map(ids => (
+      this.repository.find(prod => prod.product_id === ids)
+    ))
+
+    return getProducts
   }
 }
