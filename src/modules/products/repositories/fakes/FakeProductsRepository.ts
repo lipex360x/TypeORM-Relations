@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
 import Product from '@modules/products/entities/Product'
-import IProductsRepository, { CreateProps, FindByNameProps, FindAllByIdProps } from '../interfaces/IProductsRepository'
+import IProductsRepository, { CreateProps, FindByNameProps, FindAllByIdProps, UpdateQuantityProps } from '../interfaces/IProductsRepository'
 
 export default class FakeProductsRepository implements IProductsRepository {
   private repository: Product[] = []
@@ -30,10 +30,20 @@ export default class FakeProductsRepository implements IProductsRepository {
   }
 
   async findAllById ({ arrayProductIds }:FindAllByIdProps): Promise<Product[]> {
-    const getProducts = arrayProductIds.map(ids => (
-      this.repository.find(prod => prod.product_id === ids)
+    const getProducts = arrayProductIds.map(product_id => (
+      this.repository.find(prod => prod.product_id === product_id)
     ))
 
     return getProducts
+  }
+
+  async updateQuantity ({ products }:UpdateQuantityProps): Promise<Product[]> {
+    products.map(product => {
+      const getIndex = this.repository.findIndex(prod => prod.product_id === product.product_id)
+      const setProd = this.repository[getIndex].quantity = product.quantity
+      return setProd
+    })
+
+    return this.repository
   }
 }

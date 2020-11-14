@@ -1,7 +1,5 @@
 import { inject, injectable } from 'tsyringe'
 
-// import AppError from '@shared/errors/AppError'
-
 import Product from '@modules/products/entities/Product'
 import IProductsRepository from '@modules/products/repositories/interfaces/IProductsRepository'
 import AppError from '@shared/errors/AppError'

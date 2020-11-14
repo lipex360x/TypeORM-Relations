@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/AppError'
+// import AppError from '@shared/errors/AppError'
 
 import FakeProductsRepository from '@modules/products/repositories/fakes/FakeProductsRepository'
 import ListProductsService from './ListProductsService'
@@ -6,13 +6,13 @@ import ListProductsService from './ListProductsService'
 let fakeRepository: FakeProductsRepository
 let listProductsService: ListProductsService
 
-describe('ListProducts', () => {
+describe('UpdateQuantity', () => {
   beforeEach(() => {
     fakeRepository = new FakeProductsRepository()
     listProductsService = new ListProductsService(fakeRepository)
   })
 
-  it('should able to list an array of products', async () => {
+  it('should able update a list of products', async () => {
     const product1 = await fakeRepository.create({
       name: 'Prod1',
       price: 100,
