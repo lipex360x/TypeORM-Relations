@@ -5,14 +5,14 @@ import AppError from '@shared/errors/AppError'
 import Order from '@modules/orders/entities/Order'
 import IOrdersRepository from '@modules/orders/repositories/interfaces/IOrdersRepository'
 
-type ProductsProps = Array <{
+interface ProductsProps {
   product_id: string
   quantity: number
-}>
+}
 
 export interface Request {
   customer_id: string
-  products: ProductsProps
+  products: ProductsProps[]
 }
 
 @injectable()
