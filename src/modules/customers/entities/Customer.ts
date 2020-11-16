@@ -13,7 +13,7 @@ import Order from '@modules/orders/entities/Order'
 @Entity('customers')
 export default class Customer {
   @PrimaryColumn()
-  id: string;
+  customer_id: string;
 
   @Column()
   name: string;
@@ -32,6 +32,6 @@ export default class Customer {
 
   @BeforeInsert()
   customerProps () {
-    this.id = uuid()
+    this.customer_id = uuid()
   }
 }

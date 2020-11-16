@@ -17,7 +17,7 @@ describe('CreateCustomer', () => {
       email: 'johndoe@mail.com'
     })
 
-    expect(customer).toHaveProperty('id')
+    expect(customer).toHaveProperty('customer_id')
   })
 
   it('should not be able to create a new customer with duplicate email', async () => {

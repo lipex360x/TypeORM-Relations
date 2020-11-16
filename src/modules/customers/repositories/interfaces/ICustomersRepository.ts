@@ -9,7 +9,12 @@ export interface FindByEmailProps {
   email: string
 }
 
+export interface FindByIdProps {
+  customer_id: string
+}
+
 export default interface ICustomersRepository {
   create(data: CreateProps): Promise<Customer>
   findByEmail(data: FindByEmailProps): Promise<Customer>
+  findById(data: FindByIdProps): Promise<Customer>
 }
