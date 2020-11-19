@@ -1,12 +1,14 @@
+import Customer from '@modules/customers/entities/Customer'
 import Order from '@modules/orders/entities/Order'
-type ProductsProps = Array <{
+
+interface ProductsProps {
   product_id: string
   quantity: number
-}>
+}
 
 export interface CreateProps {
-  customer_id: string
-  products: ProductsProps
+  customer: Customer
+  products: ProductsProps[]
 }
 
 export interface FindByIdProps {

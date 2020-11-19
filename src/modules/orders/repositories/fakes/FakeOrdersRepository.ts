@@ -6,12 +6,12 @@ import IOrdersRepository, { CreateProps, FindByIdProps } from '../interfaces/IOr
 export default class FakeOrdersRepository implements IOrdersRepository {
   private repository: Order[] = []
 
-  async create ({ customer_id, products }:CreateProps): Promise<Order> {
+  async create ({ customer, products }:CreateProps): Promise<Order> {
     const order = new Order()
 
     Object.assign(order, {
-      id: uuid(),
-      customer_id,
+      order_id: uuid(),
+      customer,
       order_products: products,
       created_at: new Date(),
       updated_at: new Date()

@@ -23,11 +23,11 @@ export default class Order_Product {
   @Column('decimal')
   price: number;
 
-  @ManyToOne(() => Order)
+  @ManyToOne(() => Order, order => order.order_products)
   @JoinColumn({ name: 'order_id' })
   order: Order
 
-  @ManyToOne(() => Product)
+  @ManyToOne(() => Product, product => product.order_products)
   @JoinColumn({ name: 'product_id' })
   product: Product
 
