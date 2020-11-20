@@ -11,7 +11,7 @@ let fakeProductsRepository: FakeProductsRepository
 let fakeRepository: FakeOrdersRepository
 let createOrderService: CreateOrderService
 
-describe('TEST_NAME', () => {
+describe('CreateOrder', () => {
   beforeEach(() => {
     fakeCustomersRepository = new FakeCustomersRepository()
     fakeProductsRepository = new FakeProductsRepository()

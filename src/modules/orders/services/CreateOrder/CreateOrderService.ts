@@ -49,20 +49,22 @@ export default class CreateOrderService {
     ))
     if (qtdeProducts.length > 0) throw new AppError('One or more products is insufficient for this order')
 
+    // format product
     const formatProducts = products.map(product => ({
       product_id: product.product_id,
       quantity: product.quantity,
       price: getProducts.filter(getProduct => getProduct.product_id === product.product_id)[0].price
     }))
 
+    // create order
     const order = await this.repository.create({ customer: getCustomer, products: formatProducts })
 
+    // update product quantity
     const setProductQtde = formatProducts.map(product => ({
       product_id: product.product_id,
       quantity: getProducts.filter(getProduct => getProduct.product_id === product.product_id)[0].quantity -
         product.quantity
     }))
-
     await this.productsRepository.updateQuantity({ products: setProductQtde })
 
     return order
