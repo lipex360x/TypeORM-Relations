@@ -7,7 +7,7 @@
     "username":   "postgres",
     "password":   "docker",
     "database":   "typeorm-relations",
-    "logging":     true,
+    "logging":     false,
 
     "entities":   ["./src/modules/**/entities/*.{ts,js}"],
     "migrations": ["./src/shared/infra/typeorm/migrations/*.{ts,js}"],
