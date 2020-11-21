@@ -27,9 +27,15 @@ export default class Order_Product {
   @JoinColumn({ name: 'order_id' })
   order: Order
 
+  @Column('uuid')
+  order_id: string;
+
   @ManyToOne(() => Product, product => product.order_products)
   @JoinColumn({ name: 'product_id' })
   product: Product
+
+  @Column('uuid')
+  product_id: string;
 
   @CreateDateColumn()
   created_at: Date;

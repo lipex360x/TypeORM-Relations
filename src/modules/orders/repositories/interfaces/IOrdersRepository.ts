@@ -17,5 +17,6 @@ export interface FindByIdProps {
 
 export default interface IOrdersRepository {
   create(data: CreateProps): Promise<Order>
+  findAll(): Promise<Order[]>
   findById(data: FindByIdProps): Promise<Order>
 }

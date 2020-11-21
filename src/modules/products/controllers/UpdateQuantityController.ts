@@ -5,7 +5,6 @@ import UpdateQuantityService from '../services/UpdateQuantity/UpdateQuantityServ
 export default class UpdateQuantityController {
   async show (request: Request, response: Response): Promise<Response> {
     const products = request.body
-    console.log(products)
 
     const updateQuantityService = container.resolve(UpdateQuantityService)
 

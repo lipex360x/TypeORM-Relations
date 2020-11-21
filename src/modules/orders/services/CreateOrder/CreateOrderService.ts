@@ -23,8 +23,8 @@ export default class CreateOrderService {
     @inject('OrdersRepository')
     private repository: IOrdersRepository,
 
-    @inject('CustomerRepository')
-    private customerRepository: ICustomersRepository,
+    @inject('CustomersRepository')
+    private customersRepository: ICustomersRepository,
 
     @inject('ProductsRepository')
     private productsRepository: IProductsRepository
@@ -32,7 +32,7 @@ export default class CreateOrderService {
 
   async execute ({ customer_id, products }: Request): Promise<Order> {
     // check customer
-    const getCustomer = await this.customerRepository.findById({ customer_id })
+    const getCustomer = await this.customersRepository.findById({ customer_id })
     if (!getCustomer) throw new AppError('User does not exists')
 
     // load ids products
@@ -55,6 +55,8 @@ export default class CreateOrderService {
       quantity: product.quantity,
       price: getProducts.filter(getProduct => getProduct.product_id === product.product_id)[0].price
     }))
+
+    console.log(formatProducts)
 
     // create order
     const order = await this.repository.create({ customer: getCustomer, products: formatProducts })
