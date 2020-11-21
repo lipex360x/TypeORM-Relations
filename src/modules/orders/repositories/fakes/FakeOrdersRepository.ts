@@ -22,6 +22,10 @@ export default class FakeOrdersRepository implements IOrdersRepository {
     return order
   }
 
+  async findAll (): Promise<Order[]> {
+    return this.repository
+  }
+
   async findById ({ order_id }:FindByIdProps): Promise<Order> {
     const getOrder = this.repository.find(order => order.order_id === order_id)
 
