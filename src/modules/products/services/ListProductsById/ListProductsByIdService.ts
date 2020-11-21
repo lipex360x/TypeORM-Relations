@@ -9,7 +9,7 @@ interface Request{
 }
 
 @injectable()
-export default class ListProductsService {
+export default class ListProductsByIdService {
   constructor (
     @inject('ProductsRepository')
     private repository: IProductsRepository

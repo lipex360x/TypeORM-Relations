@@ -1,15 +1,15 @@
 import AppError from '@shared/errors/AppError'
 
 import FakeProductsRepository from '@modules/products/repositories/fakes/FakeProductsRepository'
-import ListProductsService from './ListProductsService'
+import ListProductsByIdService from './ListProductsByIdService'
 
 let fakeRepository: FakeProductsRepository
-let listProductsService: ListProductsService
+let listProductsByIdService: ListProductsByIdService
 
 describe('ListProducts', () => {
   beforeEach(() => {
     fakeRepository = new FakeProductsRepository()
-    listProductsService = new ListProductsService(fakeRepository)
+    listProductsByIdService = new ListProductsByIdService(fakeRepository)
   })
 
   it('should able show a list of products', async () => {
@@ -39,7 +39,7 @@ describe('ListProducts', () => {
 
     const arrayIds = [product1.product_id, product2.product_id]
 
-    const getProducts = await listProductsService.execute({ product_ids: arrayIds })
+    const getProducts = await listProductsByIdService.execute({ product_ids: arrayIds })
 
     expect(getProducts).toEqual(
       expect.arrayContaining([
@@ -63,7 +63,7 @@ describe('ListProducts', () => {
     const arrayIds = ['id-product-unexistents', prod1.product_id]
 
     await expect(
-      listProductsService.execute({ product_ids: arrayIds })
+      listProductsByIdService.execute({ product_ids: arrayIds })
     ).rejects.toBeInstanceOf(AppError)
   })
 })
