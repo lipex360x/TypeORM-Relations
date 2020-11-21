@@ -56,8 +56,6 @@ export default class CreateOrderService {
       price: getProducts.filter(getProduct => getProduct.product_id === product.product_id)[0].price
     }))
 
-    console.log(formatProducts)
-
     // create order
     const order = await this.repository.create({ customer: getCustomer, products: formatProducts })
 

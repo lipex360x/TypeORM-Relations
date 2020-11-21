@@ -7,7 +7,8 @@ import {
   BeforeInsert,
   ManyToOne,
   JoinColumn,
-  OneToMany
+  OneToMany,
+  Column
 } from 'typeorm'
 import Customer from '@modules/customers/entities/Customer'
 import Order_Product from './Order_Product'
@@ -20,6 +21,9 @@ export default class Order {
   @ManyToOne(() => Customer, customer => customer.order)
   @JoinColumn({ name: 'customer_id' })
   customer: Customer
+
+  @Column('uuid')
+  customer_id: string
 
   @OneToMany(() => Order_Product, order_products => order_products.order, {
     cascade: true
