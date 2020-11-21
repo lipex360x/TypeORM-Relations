@@ -27,7 +27,7 @@ export default class FakeProductsRepository implements IProductsRepository {
   async findAllById ({ arrayProductIds }:FindAllByIdProps): Promise<Product[]> {
     const getProducts = await this.repository.find({
       where: {
-        id: In(arrayProductIds)
+        product_id: In(arrayProductIds)
       }
     })
 
