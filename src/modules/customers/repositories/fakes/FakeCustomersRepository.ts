@@ -3,7 +3,7 @@ import Customer from '@modules/customers/entities/Customer'
 import ICustomersRepository, { FindByEmailProps, CreateProps, FindByIdProps } from '../interfaces/ICustomersRepository'
 
 export default class FakeCustomersRepository implements ICustomersRepository {
-  private customers: Customer[] = []
+  private repository: Customer[] = []
 
   async create ({ name, email }:CreateProps): Promise<Customer> {
     const customer = new Customer()
@@ -16,19 +16,23 @@ export default class FakeCustomersRepository implements ICustomersRepository {
       updated_at: new Date()
     })
 
-    this.customers.push(customer)
+    this.repository.push(customer)
 
     return customer
   }
 
+  async findAll (): Promise<Customer[]> {
+    return this.repository
+  }
+
   async findByEmail ({ email }:FindByEmailProps): Promise<Customer> {
-    const getCustomer = this.customers.find(customer => customer.email === email)
+    const getCustomer = this.repository.find(customer => customer.email === email)
 
     return getCustomer
   }
 
   async findById ({ customer_id }:FindByIdProps): Promise<Customer> {
-    const getCustomer = this.customers.find(customer => customer.customer_id === customer_id)
+    const getCustomer = this.repository.find(customer => customer.customer_id === customer_id)
 
     return getCustomer
   }

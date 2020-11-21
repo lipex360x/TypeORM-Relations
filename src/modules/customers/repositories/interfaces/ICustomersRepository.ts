@@ -15,6 +15,7 @@ export interface FindByIdProps {
 
 export default interface ICustomersRepository {
   create(data: CreateProps): Promise<Customer>
+  findAll(): Promise<Customer[]>
   findByEmail(data: FindByEmailProps): Promise<Customer>
   findById(data: FindByIdProps): Promise<Customer>
 }

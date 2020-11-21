@@ -18,6 +18,10 @@ export default class CustomersRepository implements ICustomersRepository {
     return customer
   }
 
+  async findAll (): Promise<Customer[]> {
+    return this.repository.find()
+  }
+
   async findByEmail ({ email }:FindByEmailProps): Promise<Customer> {
     const getCustomer = await this.repository.findOne({ where: { email } })
 
