@@ -25,6 +25,7 @@ export interface UpdateQuantityProps {
 
 export default interface IProductsRepository {
   create(data: CreateProps): Promise<Product>
+  findAll(): Promise<Product[]>
   findByName(data: FindByNameProps): Promise<Product>
   findAllById(data: FindAllByIdProps): Promise<Product[]>
   updateQuantity(data: UpdateQuantityProps): Promise<Product[]>

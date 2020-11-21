@@ -23,6 +23,10 @@ export default class FakeProductsRepository implements IProductsRepository {
     return product
   }
 
+  async findAll (): Promise<Product[]> {
+    return this.repository
+  }
+
   async findByName ({ name }:FindByNameProps): Promise<Product> {
     const getProduct = this.repository.find(product => product.name === name)
 
