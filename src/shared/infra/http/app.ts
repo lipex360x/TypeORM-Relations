@@ -4,10 +4,10 @@ import 'express-async-errors'
 import express, { NextFunction, Request, Response } from 'express'
 
 import '@shared/containers'
-import routes from '@shared/infra/http/routes'
-import connectDB from '@shared/infra/typeorm'
-
 import AppError from '@shared/errors/AppError'
+import routes from '@shared/infra/http/routes'
+
+import connectDB from '@shared/infra/typeorm'
 connectDB()
 
 const app = express()
