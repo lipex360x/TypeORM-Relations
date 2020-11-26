@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid'
-import Customer from '@modules/customers/entities/Customer'
+import Customer from '@modules/customers/infra/typeorm/entities/Customer'
 import ICustomersRepository, { FindByEmailProps, CreateProps, FindByIdProps } from '../interfaces/ICustomersRepository'
 
 export default class FakeCustomersRepository implements ICustomersRepository {

@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe'
 
-import Customer from '@modules/customers/entities/Customer'
+import Customer from '@modules/customers/infra/typeorm/entities/Customer'
 import ICustomersRepository from '@modules/customers/repositories/interfaces/ICustomersRepository'
 
 @injectable()

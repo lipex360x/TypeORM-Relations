@@ -9,7 +9,7 @@ import {
   JoinColumn,
   OneToMany
 } from 'typeorm'
-import Customer from '@modules/customers/entities/Customer'
+import Customer from '@modules/customers/infra/typeorm/entities/Customer'
 import Order_Product from './Order_Product'
 
 @Entity('orders')

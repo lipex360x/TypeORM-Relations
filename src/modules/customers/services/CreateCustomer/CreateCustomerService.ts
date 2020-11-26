@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe'
 import ICustomersRepository from '@modules/customers/repositories/interfaces/ICustomersRepository'
-import Customer from '@modules/customers/entities/Customer'
+import Customer from '@modules/customers/infra/typeorm/entities/Customer'
 import AppError from '@shared/errors/AppError'
 
 interface Request{

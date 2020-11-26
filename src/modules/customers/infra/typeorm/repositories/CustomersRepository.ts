@@ -1,7 +1,7 @@
 import { Repository, getRepository } from 'typeorm'
 
-import Customer from '@modules/customers/entities/Customer'
-import ICustomersRepository, { FindByEmailProps, CreateProps, FindByIdProps } from '../interfaces/ICustomersRepository'
+import Customer from '@modules/customers/infra/typeorm/entities/Customer'
+import ICustomersRepository, { FindByEmailProps, CreateProps, FindByIdProps } from '@modules/customers/repositories/interfaces/ICustomersRepository'
 
 export default class CustomersRepository implements ICustomersRepository {
   private repository: Repository<Customer>

@@ -1,4 +1,4 @@
-import Customer from '@modules/customers/entities/Customer'
+import Customer from '@modules/customers/infra/typeorm/entities/Customer'
 import Order from '@modules/orders/entities/Order'
 
 interface ProductsProps {
