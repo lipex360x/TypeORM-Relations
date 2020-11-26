@@ -1,0 +1,19 @@
+[
+  {
+    "type":       "postgres",
+    "host":       "localhost",
+    "port":       5432,
+
+    "username":   "postgres",
+    "password":   "docker",
+    "database":   "gostack_desafio09",
+    "logging":     false,
+
+    "entities":   ["./src/modules/**/entities/*.{ts,js}"],
+    "migrations": ["./src/shared/infra/typeorm/migrations/*.{ts,js}"],
+
+    "cli":{
+      "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    }
+  }
+]
