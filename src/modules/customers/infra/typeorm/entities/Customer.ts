@@ -9,6 +9,7 @@ import {
   OneToMany
 } from 'typeorm'
 import Order from '@modules/orders/infra/typeorm/entities/Order'
+import { Exclude } from 'class-transformer'
 
 @Entity('customers')
 export default class Customer {
@@ -23,6 +24,10 @@ export default class Customer {
 
   @OneToMany(() => Order, orders => orders.customer)
   order: Order[]
+
+  @Column()
+  @Exclude()
+  password: string
 
   @CreateDateColumn()
   created_at: Date;
