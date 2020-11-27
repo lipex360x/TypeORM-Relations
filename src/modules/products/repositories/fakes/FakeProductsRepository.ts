@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
-import Product from '@modules/products/entities/Product'
+import Product from '@modules/products/infra/typeorm/entities/Product'
 import IProductsRepository, { CreateProps, FindByNameProps, FindAllByIdProps, UpdateQuantityProps } from '../interfaces/IProductsRepository'
 
 export default class FakeProductsRepository implements IProductsRepository {

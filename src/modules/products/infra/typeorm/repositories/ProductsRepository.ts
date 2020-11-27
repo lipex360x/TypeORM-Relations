@@ -1,7 +1,7 @@
 import { Repository, getRepository, In } from 'typeorm'
 
-import Product from '@modules/products/entities/Product'
-import IProductsRepository, { CreateProps, FindByNameProps, FindAllByIdProps, UpdateQuantityProps } from '../interfaces/IProductsRepository'
+import Product from '@modules/products/infra/typeorm/entities/Product'
+import IProductsRepository, { CreateProps, FindByNameProps, FindAllByIdProps, UpdateQuantityProps } from '@modules/products/repositories/interfaces/IProductsRepository'
 
 export default class FakeProductsRepository implements IProductsRepository {
   private repository: Repository<Product>

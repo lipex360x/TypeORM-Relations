@@ -1,9 +1,9 @@
 import { Router } from 'express'
 
-import CreateProductsController from '../controllers/CreateProductsController'
-import ListProductsController from '../controllers/ListProductsController'
-import ListProductsByIdController from '../controllers/ListProductsByIdController'
-import UpdateQuantityController from '../controllers/UpdateQuantityController'
+import CreateProductsController from '@modules/products/infra/http/controllers/CreateProductsController'
+import ListProductsController from '@modules/products/infra/http/controllers/ListProductsController'
+import ListProductsByIdController from '@modules/products/infra/http/controllers/ListProductsByIdController'
+import UpdateQuantityController from '@modules/products/infra/http/controllers/UpdateQuantityController'
 
 const router = Router()
 

@@ -10,7 +10,7 @@ import {
   JoinColumn
 } from 'typeorm'
 import Order from './Order'
-import Product from '@modules/products/entities/Product'
+import Product from '@modules/products/infra/typeorm/entities/Product'
 
 @Entity('order_products')
 export default class Order_Product {

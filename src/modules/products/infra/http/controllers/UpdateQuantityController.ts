@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
-import UpdateQuantityService from '../services/UpdateQuantity/UpdateQuantityService'
+import UpdateQuantityService from '@modules/products/services/UpdateQuantity/UpdateQuantityService'
 
 export default class UpdateQuantityController {
   async show (request: Request, response: Response): Promise<Response> {
