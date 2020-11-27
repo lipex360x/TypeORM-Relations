@@ -1,7 +1,7 @@
 import { Repository, getRepository } from 'typeorm'
 
-import Order from '@modules/orders/entities/Order'
-import IOrdersRepository, { CreateProps, FindByIdProps } from '../interfaces/IOrdersRepository'
+import Order from '@modules/orders/infra/typeorm/entities/Order'
+import IOrdersRepository, { CreateProps, FindByIdProps } from '@modules/orders/repositories/interfaces/IOrdersRepository'
 
 export default class OrdersRepository implements IOrdersRepository {
   private repository: Repository<Order>

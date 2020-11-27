@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe'
 
-import Order from '@modules/orders/entities/Order'
+import Order from '@modules/orders/infra/typeorm/entities/Order'
 import IOrdersRepository from '@modules/orders/repositories/interfaces/IOrdersRepository'
 import AppError from '@shared/errors/AppError'
 

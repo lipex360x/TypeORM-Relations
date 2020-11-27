@@ -1,5 +1,5 @@
 import Customer from '@modules/customers/infra/typeorm/entities/Customer'
-import Order from '@modules/orders/entities/Order'
+import Order from '@modules/orders/infra/typeorm/entities/Order'
 
 interface ProductsProps {
   product_id: string

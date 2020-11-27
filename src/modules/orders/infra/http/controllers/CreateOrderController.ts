@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
-import CreateOrderService from '../services/CreateOrder/CreateOrderService'
+import CreateOrderService from '@modules/orders/services/CreateOrder/CreateOrderService'
 
 export default class CreateOrderController {
   async create (request: Request, response: Response): Promise<Response> {

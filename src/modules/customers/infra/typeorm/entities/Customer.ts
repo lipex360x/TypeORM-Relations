@@ -8,7 +8,7 @@ import {
   BeforeInsert,
   OneToMany
 } from 'typeorm'
-import Order from '@modules/orders/entities/Order'
+import Order from '@modules/orders/infra/typeorm/entities/Order'
 
 @Entity('customers')
 export default class Customer {

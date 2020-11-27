@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
-import Order from '@modules/orders/entities/Order'
+import Order from '@modules/orders/infra/typeorm/entities/Order'
 import IOrdersRepository, { CreateProps, FindByIdProps } from '../interfaces/IOrdersRepository'
 
 export default class FakeOrdersRepository implements IOrdersRepository {

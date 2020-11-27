@@ -1,8 +1,8 @@
 import { Router } from 'express'
 
-import CreateOrderController from '../controllers/CreateOrderController'
-import ShowOrderController from '../controllers/ShowOrderController'
-import ListOrdersController from '../controllers/ListOrdersController'
+import CreateOrderController from '@modules/orders/infra/http/controllers/CreateOrderController'
+import ShowOrderController from '@modules/orders/infra/http/controllers/ShowOrderController'
+import ListOrdersController from '@modules/orders/infra/http/controllers/ListOrdersController'
 
 const router = Router()
 

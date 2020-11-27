@@ -1,13 +1,13 @@
 import { container } from 'tsyringe'
 
 import IOrdersRepository from './interfaces/IOrdersRepository'
-import OrdersRepository from './implementations/OrdersRepository'
+import OrdersRepository from '../infra/typeorm/repositories/OrdersRepository'
 
 const providers = {
-  postgres: OrdersRepository
+  typeorm: OrdersRepository
 }
 
 container.registerSingleton<IOrdersRepository>(
   'OrdersRepository',
-  providers.postgres
+  providers.typeorm
 )
