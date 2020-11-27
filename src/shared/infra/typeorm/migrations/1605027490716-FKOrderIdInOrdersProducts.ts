@@ -5,11 +5,11 @@ import {
   TableForeignKey
 } from 'typeorm'
 
-export default class AddOrderIdToOrderProducts20201110135816
+export default class FKOrderIdInOrdersProducts20201110135816
 implements MigrationInterface {
   public async up (queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
-      'order_products',
+      'ordersProducts',
       new TableColumn({
         name: 'order_id',
         type: 'uuid',
@@ -18,9 +18,9 @@ implements MigrationInterface {
     )
 
     await queryRunner.createForeignKey(
-      'order_products',
+      'ordersProducts',
       new TableForeignKey({
-        name: 'OrderProductsOrder',
+        name: 'OrdersProductsToOrder',
         columnNames: ['order_id'],
 
         referencedTableName: 'orders',
@@ -33,7 +33,7 @@ implements MigrationInterface {
   }
 
   public async down (queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('order_products', 'OrderProductsOrder')
-    await queryRunner.dropColumn('order_products', 'order_id')
+    await queryRunner.dropForeignKey('ordersProducts', 'OrdersProductsToOrder')
+    await queryRunner.dropColumn('ordersProducts', 'order_id')
   }
 }

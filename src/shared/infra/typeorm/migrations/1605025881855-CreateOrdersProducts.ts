@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export default class CreateOrderProducts20201110133126 implements MigrationInterface {
+export default class CreateOrdersProducts20201110133126 implements MigrationInterface {
   public async up (queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'order_products',
+        name: 'ordersProducts',
         columns: [
           {
             name: 'order_products_id',

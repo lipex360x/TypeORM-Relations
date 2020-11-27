@@ -10,7 +10,7 @@ import {
   OneToMany
 } from 'typeorm'
 import Customer from '@modules/customers/infra/typeorm/entities/Customer'
-import Order_Product from './Order_Product'
+import Order_Product from './OrderProducts'
 
 @Entity('orders')
 export default class Order {

@@ -12,7 +12,7 @@ import {
 import Order from './Order'
 import Product from '@modules/products/infra/typeorm/entities/Product'
 
-@Entity('order_products')
+@Entity('ordersProducts')
 export default class Order_Product {
   @PrimaryColumn('uuid')
   order_products_id: string;
