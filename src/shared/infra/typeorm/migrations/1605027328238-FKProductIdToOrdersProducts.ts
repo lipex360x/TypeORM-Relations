@@ -5,7 +5,7 @@ import {
   TableForeignKey
 } from 'typeorm'
 
-export default class FKProductIdInOrdersProducts20201110135534
+export default class FKProductIdToOrdersProducts20201110135534
 implements MigrationInterface {
   public async up (queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
@@ -20,7 +20,7 @@ implements MigrationInterface {
     await queryRunner.createForeignKey(
       'ordersProducts',
       new TableForeignKey({
-        name: 'OrderProductsToProduct',
+        name: 'ordersProductsToProduct',
         columnNames: ['product_id'],
 
         referencedTableName: 'products',
@@ -33,7 +33,7 @@ implements MigrationInterface {
   }
 
   public async down (queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('ordersProducts', 'OrderProductsToProduct')
+    await queryRunner.dropForeignKey('ordersProducts', 'ordersProductsToProduct')
     await queryRunner.dropColumn('ordersProducts', 'product_id')
   }
 }
