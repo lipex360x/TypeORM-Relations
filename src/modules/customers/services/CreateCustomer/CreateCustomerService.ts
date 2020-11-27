@@ -24,7 +24,7 @@ export default class CreateCustomerService {
     const getCustomer = await this.repository.findByEmail({ email })
 
     if (getCustomer) {
-      throw new AppError('This email already exists', 201)
+      throw new AppError('This email already exists')
     }
 
     const hashedPassword = await this.encryptProvider.generate({ password })
