@@ -3,6 +3,7 @@ import Customer from '@modules/customers/infra/typeorm/entities/Customer'
 export interface CreateProps {
   name: string
   email: string
+  password: string
 }
 
 export interface FindByEmailProps {

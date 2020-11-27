@@ -21,7 +21,12 @@ describe('CreateOrder', () => {
   })
 
   it('should be able to create a new order', async () => {
-    const customer = await fakeCustomersRepository.create({ name: 'john doe', email: 'mail@mail.com' })
+    const customer = await fakeCustomersRepository.create({
+      name: 'john doe',
+      email: 'mail@mail.com',
+      password: '1234'
+    })
+
     const product1 = await fakeProductsRepository.create({ name: 'product1', price: 50, quantity: 5 })
     const product2 = await fakeProductsRepository.create({ name: 'product2', price: 100, quantity: 10 })
 
@@ -64,7 +69,12 @@ describe('CreateOrder', () => {
   })
 
   it('should not be able to create an order with invalid products', async () => {
-    const customer = await fakeCustomersRepository.create({ name: 'john doe', email: 'mail@mail.com' })
+    const customer = await fakeCustomersRepository.create({
+      name: 'john doe',
+      email: 'mail@mail.com',
+      password: '1234'
+    })
+
     const product1 = await fakeProductsRepository.create({ name: 'product1', price: 50, quantity: 5 })
 
     const productArray = [
@@ -78,7 +88,12 @@ describe('CreateOrder', () => {
   })
 
   it('should not be able to create an order with products with insufficient quantities', async () => {
-    const customer = await fakeCustomersRepository.create({ name: 'john doe', email: 'mail@mail.com' })
+    const customer = await fakeCustomersRepository.create({
+      name: 'john doe',
+      email: 'mail@mail.com',
+      password: '1234'
+    })
+
     const product1 = await fakeProductsRepository.create({ name: 'product1', price: 50, quantity: 5 })
     const product2 = await fakeProductsRepository.create({ name: 'product2', price: 100, quantity: 10 })
 
@@ -93,7 +108,12 @@ describe('CreateOrder', () => {
   })
 
   it('should be able to subtract an product total quantity when it is ordered', async () => {
-    const customer = await fakeCustomersRepository.create({ name: 'john doe', email: 'mail@mail.com' })
+    const customer = await fakeCustomersRepository.create({
+      name: 'john doe',
+      email: 'mail@mail.com',
+      password: '1234'
+    })
+
     const product1 = await fakeProductsRepository.create({ name: 'product1', price: 50, quantity: 5 })
     const product2 = await fakeProductsRepository.create({ name: 'product2', price: 100, quantity: 10 })
 

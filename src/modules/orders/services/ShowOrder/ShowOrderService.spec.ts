@@ -21,7 +21,11 @@ describe('ShowOrder', () => {
   })
 
   it('should be able to list a order', async () => {
-    const customer = await fakeCustomersRepository.create({ name: 'john doe', email: 'mail@mail.com' })
+    const customer = await fakeCustomersRepository.create({
+      name: 'john doe',
+      email: 'mail@mail.com',
+      password: '1234'
+    })
     const product1 = await fakeProductsRepository.create({ name: 'product1', price: 50, quantity: 5 })
     const product2 = await fakeProductsRepository.create({ name: 'product2', price: 100, quantity: 10 })
 

@@ -5,13 +5,14 @@ import ICustomersRepository, { FindByEmailProps, CreateProps, FindByIdProps } fr
 export default class FakeCustomersRepository implements ICustomersRepository {
   private repository: Customer[] = []
 
-  async create ({ name, email }:CreateProps): Promise<Customer> {
+  async create ({ name, email, password }:CreateProps): Promise<Customer> {
     const customer = new Customer()
 
     Object.assign(customer, {
       customer_id: uuid(),
       name,
       email,
+      password,
       created_at: new Date(),
       updated_at: new Date()
     })

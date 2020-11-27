@@ -11,8 +11,16 @@ describe('TEST_NAME', () => {
   })
 
   it('should be able to list customers', async () => {
-    await fakeCustomerRepository.create({ name: 'John Doe', email: 'john@mail.com' })
-    await fakeCustomerRepository.create({ name: 'John Tre', email: 'tre@mail.com' })
+    await fakeCustomerRepository.create({
+      name: 'John Doe',
+      email: 'john@mail.com',
+      password: '1234'
+    })
+    await fakeCustomerRepository.create({
+      name: 'John Tre',
+      email: 'tre@mail.com',
+      password: '1234'
+    })
 
     const getCustomers = await listCustomersService.execute()
 

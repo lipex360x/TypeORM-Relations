@@ -6,7 +6,7 @@ import OrderRouter from '@modules/orders/infra/http/routes/orders.routes'
 
 const router = Router()
 
-router.use('/customer', CustomersRouter)
+router.use('/customers', CustomersRouter)
 router.use('/products', ProductsRouter)
 router.use('/orders', OrderRouter)
 

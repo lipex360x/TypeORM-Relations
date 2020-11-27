@@ -10,8 +10,8 @@ export default class CustomersRepository implements ICustomersRepository {
     this.repository = getRepository(Customer)
   }
 
-  async create ({ name, email }:CreateProps): Promise<Customer> {
-    const customer = this.repository.create({ name, email })
+  async create ({ name, email, password }:CreateProps): Promise<Customer> {
+    const customer = this.repository.create({ name, email, password })
 
     await this.repository.save(customer)
 
